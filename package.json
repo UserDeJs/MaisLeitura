@@ -1,0 +1,17 @@
+{
+  "name": "maisleitura",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "jest": "^30.0.4"
+    "jest": "^30.0.4",
+    "prettier": "^3.6.2"
   },
   "scripts": {
     "test": "jest",

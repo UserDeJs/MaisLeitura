@@ -2,13 +2,21 @@ services:
   db:
     image: postgres:9.5.25
     container_name: db
+    ports:
+      - 5432:5432
     environment:
-      - POSTGRES_PASSWORD=1234
-      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=1324
+      - POSTGRES_USER=tulio
       - POSTGRES_DB=maisleitura
     volumes:
       - db_data:/var/lib/postgresql/data
+  pgweb:
+    image: sosedoff/pgweb
+    ports:
+      - 8081:8081
+    depends_on:
+      - db
 
 volumes:
-     db_data:
-      driver: local
+  db_data:
+    driver: local

@@ -15,5 +15,8 @@
     "services:down": "docker-compose -f compose.yaml down"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.16.3"
+  }
 }

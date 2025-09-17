@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=tulio
       - POSTGRES_DB=maisleitura
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data_x:/var/lib/postgresql/data
   pgweb:
     image: sosedoff/pgweb
     ports:
@@ -18,5 +18,5 @@ services:
       - db
 
 volumes:
-  db_data:
+  db_data_x:
     driver: local

@@ -10,7 +10,9 @@
   },
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "services:up": "docker-compose -f compose.yaml up -d",
+    "services:down": "docker-compose -f compose.yaml down"
   },
   "author": "",
   "license": "ISC"

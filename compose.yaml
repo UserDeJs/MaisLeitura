@@ -6,7 +6,7 @@ services:
       - 5432:5432
     environment:
       - POSTGRES_PASSWORD=1324
-      - POSTGRES_USER=tulio
+      - POSTGRES_USER=Gustavo
       - POSTGRES_DB=maisleitura
     volumes:
       - db_data_x:/var/lib/postgresql/data

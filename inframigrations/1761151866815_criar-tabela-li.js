@@ -8,8 +8,7 @@ export const shorthands = undefined;
  * @param run {() => void | undefined}
  * @returns {Promise<void> | void}
  */
-export const up = (pgm) => {};
-
+export const up = (pgm) => {
 pgm.sql(`
 CREATE TABLE livro(
   
@@ -26,10 +25,19 @@ CREATE TABLE livro(
   preco NUMERIC(10,2) DEFAULT 0.0
 
 )
+`)
+
+};
+
 
 /**
  * @param pgm {import('node-pg-migrate').MigrationBuilder}
  * @param run {() => void | undefined}
  * @returns {Promise<void> | void}
  */
-export const down = (pgm) => {};
+export const down = (pgm) => {
+  pgm.sql(`
+  DROP TABLE livro;
+  `);
+  );
+

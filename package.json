@@ -13,7 +13,8 @@
     "test:watch": "jest --watch",
     "services:up": "docker-compose -f compose.yaml up -d",
     "services:down": "docker-compose -f compose.yaml down",
-    "migrate:create": "node-pg-migrate -m inframigrations create"
+    "migrate:create": "node-pg-migrate -m inframigrations create",
+    "migrate:up": "node-pg-migrate up"
   },
   "author": "",
   "license": "ISC",

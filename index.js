@@ -1,11 +1,11 @@
 require("dotenv").config();
-console.log(process.env);
-const { query } = require("./infra/database")
+const liveroRepository = require("./infra/repository/livro");
 
-query("SELECT 1 +1;")
-.then(function (value) {
-    console.log(value);
+liveroRepository
+.consultarTodos()
+.then((function (resultado) {
+ console.log(resultado);
 })
-.catch(function (error) {
-    console.log ("Deu ruim", error);
+.catch((function (error) {
+ console.error("Erro ao consultar livros:", error);
 });

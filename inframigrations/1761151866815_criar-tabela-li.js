@@ -39,5 +39,5 @@ export const down = (pgm) => {
   pgm.sql(`
   DROP TABLE livro;
   `);
-  );
+}
 

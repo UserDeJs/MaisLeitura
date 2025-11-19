@@ -18,7 +18,7 @@ async function consultarmaisbuscados(){
     return resultados;    
 }
 async function consultarCurtidas(){
-   const sql = 'SELECT * FROM livro WHERE curtidas = 0;'
+   const sql = 'SELECT * FROM livro ORDER BY curtidas DESC LIMIT 5;'
    const resultado = await query(sql);
     return resultados;    
 }

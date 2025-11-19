@@ -3,65 +3,51 @@ const livroRepository = require("./infra/repository/livro");
 const express = require("express");
 const app = express();
 
-app.get("/", function (req, res) {
-  console.log(req.method, req.url);
-  res.send("Seja bem vindo ao meu servidor Express");
+app.get("/", async function (req, res) {
+  const livrostop = await livroRepository.consultarTops();
+  const livrosmaisbuscados = await livroRepository.consultarMaisBuscados();
+  const curtidas = await livroRepository.consultarCurtidas();
+
+  let itensTop = ""
+  for (livro of livrosTops) {
+    itensTop += `<li>${livro.titulo} </li>`;
+  }
+
+  let itensMaisBuscados = ""
+  for (livro of livrosMaisBuscados) {
+    itensMaisBuscados += `<li>${livro.titulo} </li>`;
+  }
+
+  let ncurtidas = ""
+  for (livro of livrosCurtidas) {
+    curtidas += `<li>${livro.titulo} - ${livro.curtidas} curtidas </li>`;
+  }
+
+let html = `<DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <p>Itens Tops</p>
+    <ul>
+    ${itensTops}
+    </ul>
+
+    <p>Itens mais adquiridos</p>
+    <ul>
+    ${itensMaisBuscados}
+    </ul>
+  </body>
+</html>`;
+
+  res.send(html);
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, function () {
   console.log("Inicializando server");
 });
-
-// const http = require("node:http");
-
-// const server = http.createServer(function (req, res) {
-//   // res.writeHead(200, { "content-type": "application/json" });
-
-//   // const livros = await livroRepository.consultarTodos();
-
-//   console.log("Method", req.method);
-//   console.log("Recurso que cliente solicitou", req.url);
-
-//   if (req.url === "/livros") {
-//     res.end(`<html>
-//       <head>
-//         <meta charset="UTF-8" />
-//         <style>
-//           body {
-//             font-size: 35px;
-//             background-color: black;
-//             color: white;
-//           }
-//         </style>
-//       </head>
-//       <body>
-//        <h1>Livros</h1>
-//       </body>
-//     </html>`);
-//     return;
-//   }
-
-//   res.end(`<html>
-//       <head>
-//         <meta charset="UTF-8" />
-//         <style>
-//           body {
-//             font-size: 35px;
-//             background-color: black;
-//             color: white;
-//           }
-//         </style>
-//       </head>
-//       <body>
-//         <h1>Seja bem vindo</h1>
-//         <p>Vamos prestar atenção na aula</p>
-//       </body>
-//     </html>`);
-// });
-
-// const port = process.env.PORT || 3000;
-
-// server.listen(port, function () {
-//   console.log("Inicializando servidor HTTP na porta " + port);
-// });
